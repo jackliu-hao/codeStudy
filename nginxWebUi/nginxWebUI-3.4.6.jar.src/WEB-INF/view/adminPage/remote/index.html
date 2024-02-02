@@ -1,0 +1,318 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<#include "/adminPage/common.html"/>
+<style type="text/css">
+.layui-form-label{
+	width: 150px;
+}
+.layui-input-block{
+	margin-left: 180px;
+}
+</style>
+</head>
+<body class="layui-layout-body">
+	<div class="layui-layout layui-layout-admin">
+
+		<#include "/adminPage/header.html"/>
+		<#include "/adminPage/menu.html"/>
+
+		<div class="layui-body">
+			<!-- 内容主体区域 -->
+			<div style="padding: 15px">
+				<fieldset class="layui-elem-field layui-field-title">
+					<legend>${menuStr.remote}</legend>
+				</fieldset>
+
+				<form action="${ctx}/adminPage/remote" id="searchForm" method="post">
+					<div class="layui-form">
+						<#if admin.type==0>
+							<div class="layui-inline">
+							<button type="button" class="layui-btn layui-btn-sm layui-btn-normal" onclick="add()">${remoteStr.add}</button>
+							</div>
+							
+							<div class="layui-inline">
+							<button type="button" class="layui-btn layui-btn-sm" onclick="addGroup()">${remoteStr.addGroup}</button>
+							</div>
+						</#if>
+						
+						<div class="layui-inline">
+						<button type="button" class="layui-btn layui-btn-sm" onclick="cmdGroup()">${remoteStr.cmdGroup}</button>
+						</div>
+						
+						<div class="layui-inline">
+						<button type="button" class="layui-btn layui-btn-sm layui-btn-normal" onclick="asycSelect()">${remoteStr.asycSelect}</button>
+						</div>
+						
+						<div class="layui-inline">
+						<button type="button" class="layui-btn layui-btn-sm layui-btn-normal" onclick="nginxMonitor()">${remoteStr.nginxMonitor}</button>
+						</div>
+						
+						<div class="layui-inline">
+							<div class="layui-form-mid layui-word-aux">${remoteStr.tips}</div>
+						</div>
+						
+						<input type="hidden" id="projectVersion" value="${projectVersion}">
+					</div>
+				</form>
+
+
+				<table class="layui-table layui-form"  lay-size="sm" id="tree-table">
+
+				</table>
+				
+			</div>
+		</div>
+	</div>
+
+	<div style="height: 0px; width: 0px; overflow: hidden;">
+		<!-- 弹出框 -->
+		<div class="layui-form" id="windowDiv" style="padding: 15px; display: none">
+		
+			<!-- 添加远程服务器 -->
+			<form id="addForm">
+				<input type="hidden" name="id" id="id">
+				<!-- <input type="hidden" name="remote" value="1"> -->
+				
+				<div class="layui-form-item">
+					<label class="layui-form-label">${remoteStr.alias}</label>
+					<div class="layui-input-block">
+						<input type="text" name="descr" id="descr" class="layui-input">
+					</div>
+				</div>
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">${remoteStr.protocol}</label>
+					<div class="layui-input-block">
+						<select id="protocol" name="protocol">
+							<option>http</option>
+							<option>https</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">${remoteStr.group}</label>
+					<div class="layui-input-block">
+						<div id="parentId"></div>
+					</div>
+				</div>
+				
+				<div class="layui-form-item">
+					<label class="layui-form-label">${remoteStr.ip}</label>
+					<div class="layui-input-block">
+						<input type="text" name="ip" id="ip" class="layui-input">
+					</div>
+				</div>
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">${remoteStr.port}</label>
+					<div class="layui-input-block">
+						<input type="number" name="port" id="port" class="layui-input">
+					</div>
+				</div>
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">${remoteStr.name}</label>
+					<div class="layui-input-block">
+						<input type="text" name="name" id="name" class="layui-input">
+					</div>
+				</div>
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">${remoteStr.pass}</label>
+					<div class="layui-input-block">
+						<input type="password" name="pass" id="pass" class="layui-input">
+					</div>
+				</div>
+				
+
+			
+
+				<div class="layui-form-item center">
+					<input type="hidden" name="code" id="code"> 
+					<input type="hidden" name="auth" id="auth"> 
+					<button type="button" class="layui-btn layui-btn-normal" onclick="addOver()">${commonStr.submit}</button>
+					<button type="button" class="layui-btn" onclick="layer.closeAll()">${commonStr.close}</button>
+				</div>
+			</form>
+		</div>
+
+		<div class="layui-form" id="groupDiv" style="padding: 15px; display: none">
+			<!-- 添加分组 -->
+			<form id="addGroupForm">
+				<input type="hidden" name="id" id="groupId">
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">${commonStr.name}</label>
+					<div class="layui-input-block">
+						<input type="text" name="name" id="groupName" class="layui-input">
+					</div>
+				</div>
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">${remoteStr.groupParent}</label>
+					<div class="layui-input-block">
+						<div id="groupParentId"></div>
+					</div>
+				</div>
+
+				<div class="layui-form-item center">
+					<button type="button" class="layui-btn layui-btn-normal" onclick="addGroupOver()">${commonStr.submit}</button>
+					<button type="button" class="layui-btn" onclick="layer.closeAll()">${commonStr.close}</button>
+				</div>
+			</form>
+		</div>
+
+
+		<div class="layui-form" id="selectDiv" style="padding: 15px; display: none">
+			<!-- 同步配置文件 -->
+			<form id="asycForm">
+				<div class="layui-form-item">
+					<label class="layui-form-label">${remoteStr.serverFrom}</label>
+					<div class="layui-input-block">
+						<div id="remoteFromId"></div>
+					</div>
+				</div>
+				
+				<div class="layui-form-item">
+					<label class="layui-form-label">${remoteStr.serverSelect}</label>
+					<div class="layui-input-block">
+						<div id="remoteSelectId"></div>
+					</div>
+				</div>
+				
+				<div class="layui-form-item">
+					<label class="layui-form-label">同步数据</label>
+					<div class="layui-input-block">
+						<input type="checkbox" class="asycData" name="asycData" id="basic" lay-skin="primary" value="basic" title="基本参数">
+						<input type="checkbox" class="asycData" name="asycData" id="http" lay-skin="primary" value="http" title="http参数">
+						<input type="checkbox" class="asycData" name="asycData" id="stream" lay-skin="primary" value="stream" title="stream参数">
+						<input type="checkbox" class="asycData" name="asycData" id="server" lay-skin="primary" value="server" title="反向代理server">
+						<input type="checkbox" class="asycData" name="asycData" id="upstream" lay-skin="primary" value="upstream" title="负载均衡upstream">
+						<input type="checkbox" class="asycData" name="asycData" id="password" lay-skin="primary" value="password" title="密码文件">
+						<input type="checkbox" class="asycData" name="asycData" id="param" lay-skin="primary" value="param" title="额外参数及模板">
+					</div>
+				</div>
+
+				<div class="layui-form-item center">
+					<button type="button" class="layui-btn layui-btn-normal" onclick="asycOver()">${remoteStr.asyc}</button>
+					<button type="button" class="layui-btn" onclick="layer.closeAll()">${commonStr.close}</button>
+				</div>
+			</form>
+		</div>
+		
+		
+		<div class="layui-form" id="nginxDiv" style="padding: 15px; display: none">
+			<!-- nginx监控 -->
+			<div class="layui-form-item">
+				<label class="layui-form-label">${remoteStr.email}</label>
+				<div class="layui-input-inline">
+					<input type="text" name="mail" id="mail" class="layui-input" placeholder="${remoteStr.mailMany}">
+				</div>
+				<div class="layui-input-inline" style="width: auto;">
+					<button type="button" class="layui-btn layui-btn-normal" onclick="showSelectMail()">${remoteStr.setSmtp}</button>
+				</div>
+				<div class="layui-input-inline" style="width: auto;">
+					<button type="button" class="layui-btn" onclick="testMail()">${remoteStr.testMail}</button>
+				</div>
+			</div>
+			
+			<div class="layui-form-item">
+				<label class="layui-form-label">${remoteStr.nginxMonitor}</label>
+				<div class="layui-input-inline">
+					<select name="nginxMonitor" id="nginxMonitor">
+						<option value="false">${commonStr.close}</option>
+						<option value="true">${commonStr.open}</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="layui-form-item center">
+				<button type="button" class="layui-btn layui-btn-normal" onclick="nginxOver()">${commonStr.ok}</button>
+				<button type="button" class="layui-btn" onclick="layer.closeAll()">${commonStr.close}</button>
+			</div>
+		</div>
+		
+
+
+		<div class="layui-form" id="cmdDiv" style="padding: 15px; display: none">
+			<form id="cmdForm">
+				<div class="layui-form-item">
+					<label class="layui-form-label">${remoteStr.server}</label>
+					<div class="layui-input-block">
+						<div id="remoteCmdSelectId"></div>
+					</div>
+				</div>
+
+				<div class="layui-form-item" id="cmdDiv">
+					<label class="layui-form-label">${remoteStr.cmd}</label>
+					<div class="layui-input-block">
+						<select name="cmd" lay-filter="cmd">
+							<option value="check">${remoteStr.check}</option>
+							<option value="replace">${remoteStr.replace}</option>
+							<option value="reload">${remoteStr.reload}</option>
+							<option value="update">${remoteStr.update}</option>
+								
+							<optgroup label="${remoteStr.nginxStart}">
+								<#list startCmds as cmd>
+									<option value="start ${cmd}">${cmd}</option>
+								</#list>
+							</optgroup>
+							<optgroup label="${remoteStr.nginxStop}">
+								<#list stopCmds as cmd>
+									<option value="stop ${cmd}">${cmd}</option>
+								</#list>
+							</optgroup>
+						</select>
+					</div>
+				</div>
+				
+				<div class="layui-form-item" id="intervalDiv" style="display: none;">
+					<label class="layui-form-label">${remoteStr.interval}</label>
+					<div class="layui-input-block">
+						<input type="number" id="interval" name="interval" class="layui-input" value="1">
+					</div>
+				</div>
+				
+				
+				<div class="layui-form-item center">
+					<button type="button" class="layui-btn layui-btn-normal" onclick="cmdOver()">${remoteStr.execute}</button>
+					<button type="button" class="layui-btn" onclick="layer.closeAll()">${commonStr.close}</button>
+				</div>
+			</form>
+		</div>
+		
+		<div class="layui-form" id="codeDiv" style="padding: 15px; display: none">
+			<div class="layui-form-item" id="imgCode">
+				<label class="layui-form-label">${loginStr.code}</label>
+				<div class="layui-input-inline" style="width: 240px;">
+					<input type="text" id="codeInput" class="layui-input" style="width: 100px;display: inline-block;">
+					<img src="" id="codeImg" onclick="refreshCode('codeImg')">
+				</div>
+			</div>
+			
+			<div class="layui-form-item" id="authCode" >
+				<label class="layui-form-label">${loginStr.authCode}</label>
+				<div class="layui-input-inline" style="width: 240px;">
+					<input type="text" id="authInput" class="layui-input" style="display: inline-block;">
+				</div>
+			</div>
+			
+			<div class="layui-form-item center" style="text-align: right;">
+				<button type="button" class="layui-btn layui-btn-normal" onclick="addOverSubmit()">${commonStr.submit}</button>
+				<button type="button" class="layui-btn" onclick="layer.close(codeIndex)">${commonStr.close}</button>
+			</div>
+		</div>
+
+	</div>
+
+	
+	<#include '/adminPage/script.html'/>
+	<#include '/adminPage/select_mail.html'/>
+	<#include '/adminPage/select_preview.html'/>
+	<script src="${ctx}/js/adminPage/remote/index.js?v=${jsrandom}" type="text/javascript"></script>
+</body>
+
+
+</html>

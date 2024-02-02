@@ -1,0 +1,347 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<#include "/adminPage/common.html"/>
+<style type="text/css">
+.layui-form-label {
+	width: 100px;
+}
+
+.layui-input-block {
+	margin-left: 130px;
+}
+
+.server {
+	width: 100%;
+}
+
+.server tr:nth-child(even) {
+	background: #f1f1f1;
+}
+
+.server td {
+	height: 30px;
+}
+
+.server .short100 {
+	width: 100px;
+	text-align: center;
+}
+
+.server .short50 {
+	width: 50px;
+	text-align: center;
+}
+
+.layui-table td {
+	padding: 5px 15px;
+}
+
+#paramList td {
+	padding-left: 5px !important;
+	padding-right: 5px !important;
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+	height: 110px;
+}
+</style>
+</head>
+<body class="layui-layout-body">
+	<div class="layui-layout layui-layout-admin">
+
+		<#include "/adminPage/header.html"/>
+		<#include "/adminPage/menu.html"/>
+
+		<div class="layui-body">
+			<!-- 内容主体区域 -->
+			<div style="padding: 15px">
+				<fieldset class="layui-elem-field layui-field-title">
+					<legend>${menuStr.upstream}</legend>
+				</fieldset>
+
+				<form action="${ctx}/adminPage/upstream" id="searchForm" method="post">
+					<div class="layui-form">
+						<div class="layui-inline">
+							<button type="button" class="layui-btn layui-btn-sm layui-btn-normal" onclick="add()">${upstreamStr.add}</button>
+						</div>
+						<div class="layui-inline">
+							<button type="button" class="layui-btn layui-btn-sm layui-btn-normal" onclick="upstreamMonitor()">${upstreamStr.upstreamMonitor}</button>
+						</div>
+						<div class="layui-input-inline">
+							<input type="text" name="keywords" class="layui-input layui-input-sm" value="${keywords}" onkeydown="if(event.keyCode==13)return false;">
+						</div>
+						<div class="layui-inline">
+							<button type="button" class="layui-btn layui-btn-sm" onclick="search()">${commonStr.search}</button>
+						</div>
+
+
+						<input type="hidden" name="curr" value="${page.curr}"> <input type="hidden" name="limit" value="${page.limit}">
+					</div>
+				</form>
+
+				<table class="layui-table layui-form" lay-size="sm">
+					<thead>
+						<tr>
+							<th>${upstreamStr.proxyType}</th>
+							<th>${commonStr.name}</th>
+							<th>${commonStr.descr}</th>
+							<th>${upstreamStr.strategy}</th>
+							<th>${upstreamStr.server}</th>
+							<#if upstreamMonitor=='true'>
+							<th>${upstreamStr.mailNotice}</th>
+							</#if>
+							<th>${commonStr.operation}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<#list page.records as ext>
+						<tr>
+							<td><#if ext.upstream.proxyType==0>http/https</#if> <#if ext.upstream.proxyType==1>TCP/UDP</#if></td>
+							<td>${ext.upstream.name}</td>
+							<td style="max-width: 150px;">
+								<#if ext.upstream.descr != null && ext.upstream.descr != "">
+									<a href="javascript:editDescr('${ext.upstream.id}')" style="color: #bbbbbb; text-decoration: underline;">${ext.upstream.descr}</a>
+								</#if>
+								<#if ext.upstream.descr == null || ext.upstream.descr == "">
+									<a href="javascript:editDescr('${ext.upstream.id}')" style="color: #bbbbbb; text-decoration: underline;">${commonStr.edit}</a>
+								</#if>
+							</td>
+							
+							<td>
+								<#if ext.upstream.tactics==""> ${upstreamStr.default} </#if> 
+								<#if ext.upstream.tactics=="ip_hash"> ${upstreamStr.ipHash} </#if> 
+								<#if ext.upstream.tactics=="sticky">
+									${upstreamStr.sticky} 
+								</#if> 
+								<#if ext.upstream.tactics=="least_conn"> ${upstreamStr.leastConn} </#if> 
+								<#if ext.upstream.tactics=="least_time"> ${upstreamStr.leastTime} </#if> 
+								<#if ext.upstream.tactics=="fair"> ${upstreamStr.fair} </#if> 
+								<#if ext.upstream.tactics=="url_hash"> ${upstreamStr.urlHash} </#if>
+							</td>
+							<td style="padding: 0px;">
+								<table class="server">${ext.serverStr}
+								</table>
+							</td>
+							<#if upstreamMonitor=='true'>
+							<td><input type="checkbox" name="switch" lay-filter="monitor" value="${ext.upstream.id}" ${(ext.upstream.monitor==1)?string( 'checked','')}  lay-text="ON|OFF" lay-skin="switch"></td>
+							</#if>
+							<td>
+								<div class="layui-inline">
+									<button type="button" class="layui-btn layui-btn-sm layui-btn-normal " onclick="preview('${ext.upstream.id}','upstream')">${commonStr.preview}</button>
+								</div>
+								<div class="layui-inline">
+									<button type="button" class="layui-btn layui-btn-sm " onclick="edit('${ext.upstream.id}', false)">${commonStr.edit}</button>
+								</div>
+
+								<div class="layui-inline">
+									<button type="button" class="layui-btn layui-btn-sm " onclick="clone('${ext.upstream.id}')">${commonStr.clone}</button>
+								</div>
+
+								<div class="layui-inline">
+									<button type="button" class="layui-btn layui-btn-danger layui-btn-sm " onclick="del('${ext.upstream.id}')">${commonStr.del}</button>
+								</div>
+
+								<div class="layui-inline">
+									<button type="button" class="layui-btn layui-btn-normal layui-btn-sm " onclick="setOrder('${ext.upstream.id}', 1)">${commonStr.up}</button>
+								</div>
+
+								<div class="layui-inline">
+									<button type="button" class="layui-btn layui-btn-normal layui-btn-sm " onclick="setOrder('${ext.upstream.id}', -1)">${commonStr.down}</button>
+								</div>
+							</td>
+						</tr>
+						</#list>
+					</tbody>
+				</table>
+				<div id="pageInfo"></div>
+			</div>
+		</div>
+	</div>
+
+	<div style="height: 0px; width: 0px; overflow: hidden;">
+		<!-- 弹出框 -->
+		<div class="layui-form" id="windowDiv" style="padding: 15px; display: none">
+			<form id="addForm">
+				<input type="hidden" name="id" id="id">
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">${upstreamStr.proxyType}</label>
+					<div class="layui-input-inline">
+						<select name="proxyType" id="proxyType" lay-filter="proxyType">
+							<option value="0">http/https</option>
+							<option value="1">TCP/UDP</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">${commonStr.name}<span class="red">*</span></label>
+					<div class="layui-input-inline">
+						<input type="text" name="name" id="name" class="layui-input">
+					</div>
+
+					<div id="tacticsDiv">
+						<label class="layui-form-label">${upstreamStr.loadTactics}</label>
+						<div class="layui-input-inline">
+							<select name="tactics" id="tactics">
+								<option value="">${upstreamStr.default}</option>
+								<option value="sticky">${upstreamStr.sticky}</option>
+								<option value="ip_hash">${upstreamStr.ipHash}</option>
+								<option value="least_conn">${upstreamStr.leastConn}</option>
+								<option value="least_time">${upstreamStr.leastTime}</option>
+
+								<option value="fair">${upstreamStr.fair}</option>
+								<option value="url_hash">${upstreamStr.urlHash}</option>
+							</select>
+						</div>
+						<div class="layui-form-mid layui-word-aux proxyHttp">${upstreamStr.proxyTips}</div>
+					</div>
+				</div>
+
+				<div class="layui-form-item">
+					<button type="button" class="layui-btn layui-btn-sm layui-btn-normal" onclick="addItem()">${upstreamStr.addServer}</button>
+					<button type="button" class="layui-btn layui-btn-sm layui-btn-normal" onclick="addBatch()">${upstreamStr.addServerBatch}</button>
+
+					<button type="button" class="layui-btn layui-btn-sm" onclick="upstreamParam()">${upstreamStr.extParam}</button>
+					<textarea style="display: none;" id="upstreamParamJson" name="upstreamParamJson"></textarea>
+				</div>
+
+				<div class="layui-form-item">
+
+					<table class="layui-table" lay-size="sm">
+						<thead>
+							<tr>
+								<th>ip <span class="red">*</span></th>
+								<th>${upstreamStr.port} <span class="red">*</span></th>
+								<th>${upstreamStr.weight}</th>
+								<th>${upstreamStr.maxFail}</th>
+								<th>${upstreamStr.maxConns}</th>
+								<th>${upstreamStr.failWait}</th>
+								<th>${upstreamStr.status}</th>
+								<th>${commonStr.operation}</th>
+							</tr>
+						</thead>
+						<tbody id="itemList" class="itemList">
+
+						</tbody>
+					</table>
+
+				</div>
+
+				<div class="layui-form-item center">
+					<button type="button" class="layui-btn layui-btn-normal" onclick="addOver()">${commonStr.submit}</button>
+					<button type="button" class="layui-btn" onclick="layer.closeAll()">${commonStr.close}</button>
+				</div>
+			</form>
+		</div>
+
+
+		<div class="layui-form" id="batchDiv" style="padding: 15px; display: none">
+			<div class="layui-form-item">
+				<label class="layui-form-label">${upstreamStr.ipPort}</label>
+				<div class="layui-input-block">
+					<textarea style="width: 100%; height: 300px;" name="batchIp" id="batchIp" class="layui-textarea" placeholder="${upstreamStr.example}"></textarea>
+				</div>
+			</div>
+
+			<div class="layui-form-item center">
+				<button type="button" class="layui-btn layui-btn-normal" onclick="addBatchOver()">${commonStr.ok}</button>
+				<button type="button" class="layui-btn" onclick="layer.close(batchIndex)">${commonStr.close}</button>
+			</div>
+		</div>
+
+		<div class="layui-form" id="monitorDiv" style="padding: 15px; display: none">
+			<div class="layui-form-item">
+				<label class="layui-form-label">${remoteStr.email}</label>
+				<div class="layui-input-inline">
+					<input type="text" name="mail" id="mail" class="layui-input" placeholder="${remoteStr.mailMany}">
+				</div>
+				<div class="layui-input-inline" style="width: auto;">
+					<button type="button" class="layui-btn layui-btn-normal" onclick="showSelectMail()">${remoteStr.setSmtp}</button>
+				</div>
+				<div class="layui-input-inline" style="width: auto;">
+					<button type="button" class="layui-btn" onclick="testMail()">${remoteStr.testMail}</button>
+				</div>
+			</div>
+
+			<div class="layui-form-item">
+				<label class="layui-form-label">${upstreamStr.upstreamMonitor}</label>
+				<div class="layui-input-inline">
+					<select name="upstreamMonitor" id="upstreamMonitor">
+						<option value="false">${commonStr.close}</option>
+						<option value="true">${commonStr.open}</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="layui-form-item center">
+				<button type="button" class="layui-btn layui-btn-normal" onclick="upstreamOver()">${commonStr.ok}</button>
+				<button type="button" class="layui-btn" onclick="layer.closeAll()">${commonStr.close}</button>
+			</div>
+		</div>
+
+
+		<div id="paramJsonDiv" style="display: none; padding: 15px;">
+			<div class="layui-form-item">
+				<button type="button" class="layui-btn layui-btn-sm layui-btn-normal" onclick="addParam()">${upstreamStr.addParam}</button>
+
+				<button type="button" class="layui-btn layui-btn-sm layui-btn-normal" onclick="selectTemplate('paramList')">${upstreamStr.selectTemplate}</button>
+
+				<button type="button" class="layui-btn layui-btn-sm layui-btn-normal" onclick="selectTemplateAsParam('paramList')">${upstreamStr.selectTemplateAsParam}</button>
+			</div>
+			<div class="layui-form-item">
+				<input type="hidden" id="targertId">
+				<table class="layui-table" lay-size="sm">
+					<thead>
+						<tr>
+							<th>${commonStr.name}</th>
+							<th>${commonStr.value}</th>
+							<th style="width: 170px;">${commonStr.operation}</th>
+						</tr>
+					</thead>
+					<tbody id="paramList">
+
+					</tbody>
+				</table>
+			</div>
+
+			<div class="layui-form-item center">
+				<button type="button" class="layui-btn layui-btn-normal" onclick="addParamOver()">${commonStr.submit}</button>
+				<button type="button" class="layui-btn" onclick="layer.close(paramIndex)">${commonStr.close}</button>
+			</div>
+		</div>
+
+		<div class="layui-form" id="previewDiv" style="padding: 15px; display: none">
+			<div class="layui-form-item">
+				<div class="layui-input-inline" style="width: 100%">
+					<textarea id="preview" name="preview" readonly="readonly" class="layui-textarea" style="height: 500px;">
+					
+					</textarea>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div class="layui-form" id="descrDiv" style="padding: 15px; display: none">
+			<input type="hidden" id="upstreamId" name="upstreamId">
+			<div class="layui-form-item">
+				<div class="layui-input-inline" style="width: 100%;">
+					<textarea id="descr" name="descr" class="layui-textarea" style="height: 200px;"></textarea>
+				</div>
+			</div>
+			<div class="layui-form-item center">
+				<button type="button" class="layui-btn layui-btn-normal" onclick="editDescrOver()">${commonStr.ok}</button>
+				<button type="button" class="layui-btn" onclick="layer.closeAll()">${commonStr.close}</button>
+			</div>
+		</div>
+	</div>
+
+	<#include '/adminPage/script.html'/>
+	<#include '/adminPage/select_mail.html'/>
+	<#include '/adminPage/select_template.html'/>
+	<#include '/adminPage/select_preview.html'/>
+	<script src="${ctx}/js/adminPage/upstream/index.js?v=${jsrandom}" type="text/javascript"></script>
+</body>
+
+
+</html>

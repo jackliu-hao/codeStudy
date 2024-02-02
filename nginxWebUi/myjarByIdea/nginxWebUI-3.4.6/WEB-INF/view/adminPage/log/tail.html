@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<#include "/adminPage/common.html"/>
+
+</head>
+<body style="background: #333; color: #aaa;"> 
+	<div id="log-container" style=" padding: 10px;">
+		
+	</div>
+
+	<div style="position: fixed; top: 10px; right: 30px;">
+		<button type="button" class="layui-btn layui-btn-sm" id="stopOrStart" type="button" onclick="stopOrStart()">${loginStr.pause}</button>
+	</div>
+
+	<input type="hidden" id="id" value="${id}">
+	<#include '/adminPage/script.html'/>
+	<script src="${ctx}/js/adminPage/log/tail.js?v=${jsrandom}" type="text/javascript"></script>
+</body>
+
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+/*   */ package cn.hutool.http;
+/*   */ 
+/*   */ 
+/*   */ 
+/*   */ 
+/*   */ 
+/*   */ public enum Method
+/*   */ {
+/* 9 */   GET, POST, HEAD, OPTIONS, PUT, DELETE, TRACE, CONNECT, PATCH;
+/*   */ }
+
+
+/* Location:              G:\git\codeReviewLog\nginxWebUi\nginxWebUI-3.4.6.jar!\cn\hutool\http\Method.class
+ * Java compiler version: 8 (52.0)
+ * JD-Core Version:       1.1.3
+ */

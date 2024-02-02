@@ -1,0 +1,37 @@
+<title>${projectName}</title>
+
+<meta http-equiv="expires" content="0">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<meta name="renderer" content="webkit" />
+<meta name="force-rendering" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+
+<link rel="shortcut icon" href="${ctx}/img/favicon.ico" type="image/x-icon">
+
+<link href="${ctx}/lib/ztree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet">
+<link href="${ctx}/lib/layui/css/layui.css" rel="stylesheet" />
+<link href="${ctx}/css/adminPage/base.css" rel="stylesheet" />
+
+<script>
+	//国际化
+	<#list messageHeaders as messageHeader>
+	var ${messageHeader} = {};
+	</#list>
+	
+	<#list messages as message>
+	${message.key} = "${message.value}";
+	</#list>
+	
+	// 这是用来看项目使用情况的, 不要删
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "https://hm.baidu.com/hm.js?8acef669ea66f479854ecd328d1f348f";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+	
+</script>

@@ -1,0 +1,22 @@
+
+
+<script src="${ctx}/js/adminPage/select_template.js?v=${jsrandom}" type="text/javascript"></script>
+<div style="height: 0px; width: 0px; overflow: hidden;">
+	<!-- 弹出框 -->
+	<div class="layui-form" id="templateSelectDiv" style="padding: 15px; display: none">
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">${commonStr.selectTemplate}</label>
+			<div class="layui-input-inline">
+				<select name="selectTemplateId" id="selectTemplateId">
+				
+				</select>
+			</div>
+		</div>
+
+		<div class="layui-form-item" style="text-align: center; margin-top: 20px;">
+			<button type="button" class="layui-btn layui-btn-normal" onclick="selectTemplateOver()">${commonStr.ok}</button>
+			<button type="button" class="layui-btn " onclick="layer.close(templateIndex)">${commonStr.close}</button>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,199 @@
+/*     */ package com.mysql.cj.protocol.a;
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ public class NativeConstants
+/*     */ {
+/*     */   public static final int MAX_PACKET_SIZE = 16777215;
+/*     */   public static final int HEADER_LENGTH = 4;
+/*     */   public static final int SEED_LENGTH = 20;
+/*     */   public static final short TYPE_ID_ERROR = 255;
+/*     */   public static final short TYPE_ID_EOF = 254;
+/*     */   public static final short TYPE_ID_LOCAL_INFILE = 251;
+/*     */   public static final short TYPE_ID_OK = 0;
+/*     */   public static final int BIN_LEN_INT1 = 1;
+/*     */   public static final int BIN_LEN_INT2 = 2;
+/*     */   public static final int BIN_LEN_INT4 = 4;
+/*     */   public static final int BIN_LEN_INT8 = 8;
+/*     */   public static final int BIN_LEN_FLOAT = 4;
+/*     */   public static final int BIN_LEN_DOUBLE = 8;
+/*     */   public static final int BIN_LEN_DATE = 4;
+/*     */   public static final int BIN_LEN_TIMESTAMP_NO_FRAC = 7;
+/*     */   public static final int BIN_LEN_TIMESTAMP_WITH_MICROS = 11;
+/*     */   public static final int BIN_LEN_TIMESTAMP_WITH_TZ = 13;
+/*     */   public static final int BIN_LEN_TIME_NO_FRAC = 8;
+/*     */   public static final int BIN_LEN_TIME_WITH_MICROS = 12;
+/*     */   public static final int COM_SLEEP = 0;
+/*     */   public static final int COM_QUIT = 1;
+/*     */   public static final int COM_INIT_DB = 2;
+/*     */   public static final int COM_QUERY = 3;
+/*     */   public static final int COM_FIELD_LIST = 4;
+/*     */   public static final int COM_CREATE_DB = 5;
+/*     */   public static final int COM_DROP_DB = 6;
+/*     */   public static final int COM_REFRESH = 7;
+/*     */   public static final int COM_SHUTDOWN = 8;
+/*     */   public static final int COM_STATISTICS = 9;
+/*     */   public static final int COM_PROCESS_INFO = 10;
+/*     */   public static final int COM_CONNECT = 11;
+/*     */   public static final int COM_PROCESS_KILL = 12;
+/*     */   public static final int COM_DEBUG = 13;
+/*     */   public static final int COM_PING = 14;
+/*     */   public static final int COM_TIME = 15;
+/*     */   public static final int COM_DELAYED_INSERT = 16;
+/*     */   public static final int COM_CHANGE_USER = 17;
+/*     */   public static final int COM_BINLOG_DUMP = 18;
+/*     */   public static final int COM_TABLE_DUMP = 19;
+/*     */   public static final int COM_CONNECT_OUT = 20;
+/*     */   @Deprecated
+/*     */   public static final int COM_REGISTER_SLAVE = 21;
+/*     */   public static final int COM_STMT_PREPARE = 22;
+/*     */   public static final int COM_STMT_EXECUTE = 23;
+/*     */   public static final int COM_STMT_SEND_LONG_DATA = 24;
+/*     */   public static final int COM_STMT_CLOSE = 25;
+/*     */   public static final int COM_STMT_RESET = 26;
+/*     */   public static final int COM_SET_OPTION = 27;
+/*     */   public static final int COM_STMT_FETCH = 28;
+/*     */   public static final int COM_DAEMON = 29;
+/*     */   public static final int COM_BINLOG_DUMP_GTID = 30;
+/*     */   public static final int COM_RESET_CONNECTION = 31;
+/*     */   public static final int NO_CHARSET_INFO = -1;
+/*     */   
+/*     */   public enum IntegerDataType
+/*     */   {
+/* 115 */     INT1,
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */     
+/* 120 */     INT2,
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */     
+/* 125 */     INT3,
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */     
+/* 130 */     INT4,
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */     
+/* 135 */     INT6,
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */     
+/* 140 */     INT8,
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */     
+/* 145 */     INT_LENENC;
+/*     */   }
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   
+/*     */   public enum StringLengthDataType
+/*     */   {
+/* 159 */     STRING_FIXED,
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */     
+/* 165 */     STRING_VAR;
+/*     */   }
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */   
+/*     */   public enum StringSelfDataType
+/*     */   {
+/* 178 */     STRING_TERM,
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */     
+/* 185 */     STRING_LENENC,
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */ 
+/*     */     
+/* 191 */     STRING_EOF;
+/*     */   }
+/*     */ }
+
+
+/* Location:              G:\git\codeReviewLog\nginxWebUi\nginxWebUI-3.4.6.jar!\com\mysql\cj\protocol\a\NativeConstants.class
+ * Java compiler version: 8 (52.0)
+ * JD-Core Version:       1.1.3
+ */

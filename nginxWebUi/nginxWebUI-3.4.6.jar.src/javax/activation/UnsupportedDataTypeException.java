@@ -1,0 +1,63 @@
+/*    */ package javax.activation;
+/*    */ 
+/*    */ import java.io.IOException;
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ 
+/*    */ public class UnsupportedDataTypeException
+/*    */   extends IOException
+/*    */ {
+/*    */   public UnsupportedDataTypeException() {}
+/*    */   
+/*    */   public UnsupportedDataTypeException(String s) {
+/* 55 */     super(s);
+/*    */   }
+/*    */ }
+
+
+/* Location:              G:\git\codeReviewLog\nginxWebUi\nginxWebUI-3.4.6.jar!\javax\activation\UnsupportedDataTypeException.class
+ * Java compiler version: 4 (48.0)
+ * JD-Core Version:       1.1.3
+ */

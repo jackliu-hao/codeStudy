@@ -1,0 +1,66 @@
+
+
+<script src="${ctx}/js/adminPage/select_mail.js?v=${jsrandom}" type="text/javascript"></script>
+<div style="height: 0px; width: 0px; overflow: hidden;">
+	<!-- 弹出框 -->
+	<div class="layui-form" id="mailSelectDiv" style="padding: 15px; display: none">
+
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">${mailStr.host}</label>
+			<div class="layui-input-block">
+				<input type="text" name="mail_host" id="mail_host" class="layui-input">
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">${mailStr.port}</label>
+			<div class="layui-input-block">
+				<input type="text" name="mail_port" id="mail_port" class="layui-input">
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">${mailStr.from}</label>
+			<div class="layui-input-block">
+				<input type="text" name="mail_from" id="mail_from" class="layui-input">
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">${mailStr.ssl}</label>
+			<div class="layui-input-block">
+				<select name="mail_ssl" id="mail_ssl">
+					<option value="true">${commonStr.open}</option>
+					<option value="false">${commonStr.close}</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">${mailStr.user}</label>
+			<div class="layui-input-block">
+				<input type="text" name="mail_user" id="mail_user" class="layui-input">
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">${mailStr.pass}</label>
+			<div class="layui-input-block">
+				<input type="password" name="mail_pass" id="mail_pass" class="layui-input">
+			</div>
+		</div>
+		
+		<div class="layui-form-item">
+			<label class="layui-form-label">${mailStr.interval}</label>
+			<div class="layui-input-block">
+				<input type="number" name="mail_interval" id="mail_interval" class="layui-input">
+			</div>
+		</div>
+		
+		<div class="layui-form-item center" style="text-align: center; margin-top: 20px;">
+			<button type="button" class="layui-btn layui-btn-normal" onclick="selectMailOver()">${commonStr.ok}</button>
+			<button type="button" class="layui-btn " onclick="layer.close(mailIndex)">${commonStr.close}</button>
+		</div>
+	</div>
+</div>

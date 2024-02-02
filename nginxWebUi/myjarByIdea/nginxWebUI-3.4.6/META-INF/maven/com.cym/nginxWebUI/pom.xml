@@ -1,0 +1,219 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.cym</groupId>
+	<artifactId>nginxWebUI</artifactId>
+	<version>3.4.6</version>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+	</properties>
+	<parent>
+		<groupId>org.noear</groupId>
+		<artifactId>solon-parent</artifactId>
+		<version>1.9.4</version>
+	</parent>
+	<dependencies>
+		<dependency>
+			<groupId>org.noear</groupId>
+			<artifactId>solon-web</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.noear</groupId>
+			<artifactId>solon.boot.undertow</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.noear</groupId>
+			<artifactId>logback-solon-plugin</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.noear</groupId>
+			<artifactId>solon.schedule</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.noear</groupId>
+			<artifactId>solon-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!--
+		<dependency>
+			<groupId>org.noear</groupId>
+			<artifactId>solonhat-smartdoc</artifactId>
+			<version>1.0.0-m1</version>
+			<scope>test</scope>
+		</dependency>
+	
+		<dependency>
+			<groupId>org.antlr</groupId>
+			<artifactId>antlr4-runtime</artifactId>
+			<version>4.7.2</version>
+			<scope>test</scope>
+		</dependency>
+	-->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-compress</artifactId>
+			<version>1.21</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.odiszapc</groupId>
+			<artifactId>nginxparser</artifactId>
+			<version>0.9.6</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>2.1.210</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.28</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.warrenstrange</groupId>
+			<artifactId>googleauth</artifactId>
+			<version>1.5.0</version>
+		</dependency>
+		<dependency>
+			<groupId>cn.hutool</groupId>
+			<artifactId>hutool-all</artifactId>
+			<version>5.8.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.7</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>javase</artifactId>
+			<version>3.3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.oshi</groupId>
+			<artifactId>oshi-core</artifactId>
+			<version>5.3.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.zaxxer</groupId>
+			<artifactId>HikariCP</artifactId>
+			<version>4.0.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.whvcse</groupId>
+			<artifactId>easy-captcha</artifactId>
+			<version>1.6.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.13.1</version>
+		</dependency>
+		<!--
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-annotations</artifactId>
+			<version>1.5.20</version>
+		</dependency>
+		-->
+		<dependency>
+			<groupId>org.apache.maven</groupId>
+			<artifactId>maven-model</artifactId>
+			<version>3.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/net.jodah/expiringmap -->
+		<dependency>
+			<groupId>net.jodah</groupId>
+			<artifactId>expiringmap</artifactId>
+			<version>0.5.10</version>
+		</dependency>
+	</dependencies>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<compilerArgument>-parameters</compilerArgument>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>com.github.shalousun</groupId>
+				<artifactId>smart-doc-maven-plugin</artifactId>
+				<version>2.3.9</version>
+				<configuration>
+					<!--指定生成文档的使用的配置文件,配置文件放在自己的项目中-->
+					<configFile>./src/main/resources/smart-doc.json</configFile>
+					<!--指定项目名称-->
+					<projectName>nginxWebUI</projectName>
+				</configuration>
+				<executions>
+					<execution>
+						<!--如果不需要在执行编译时启动smart-doc，则将phase注释掉-->
+						<!-- <phase>compile</phase> -->
+						<goals>
+							<goal>html</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>3.3.0</version>
+				<configuration>
+					<finalName>${project.name}-${project.version}</finalName>
+					<appendAssemblyId>false</appendAssemblyId>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+					<archive>
+						<manifest>
+							<mainClass>com.cym.NginxWebUI</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+
+
+</project>

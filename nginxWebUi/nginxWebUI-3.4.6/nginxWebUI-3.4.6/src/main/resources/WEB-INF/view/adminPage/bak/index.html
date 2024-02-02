@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<#include "/adminPage/common.html"/>
+<link rel="stylesheet" type="text/css" href="${ctx}/lib/jsdifflib/diffview.css" />
+</head>
+<body>
+		<!-- 内容主体区域 -->
+		<div style="padding: 15px">
+			<form action="${ctx}/adminPage/bak" id="searchForm" method="post">
+				<div class="layui-inline">
+					<button type="button" class="layui-btn layui-btn-sm layui-btn-danger" onclick="delAll()">${bakStr.clear}</button>
+				</div>
+				
+				<input type="hidden" name="curr" value="${page.curr}">
+				<input type="hidden" name="limit" value="${page.limit}">
+			</form>
+
+			<table class="layui-table" lay-size="sm">
+				<thead>
+					<tr>
+						<th>${commonStr.createTime}</th>
+						<th>${commonStr.operation}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<#list page.records as bak>
+					<tr>
+						<td>${bak.time}</td>
+						<td>
+							<div class="layui-inline">
+							<button type="button" class="layui-btn layui-btn-sm" onclick="content('${bak.id}')">${bakStr.content}</button>
+							</div>
+							<div class="layui-inline">
+							<button type="button" class="layui-btn layui-btn-sm" onclick="compare('${bak.id}')">${bakStr.compare}</button>
+							</div>
+							<div class="layui-inline">
+							<button type="button" class="layui-btn layui-btn-sm layui-btn-normal" onclick="replace('${bak.id}')">${bakStr.restore}</button>
+							</div>
+							<div class="layui-inline">
+							<button type="button" class="layui-btn layui-btn-sm layui-btn-danger" onclick="del('${bak.id}')">${commonStr.del}</button>
+							</div>
+						</td>
+					</tr>
+					</#list>
+				</tbody>
+			</table>
+			<div id="pageInfo"></div>
+		</div>
+
+	<div style="height: 0px; width: 0px; overflow: hidden;">
+		<div id="diffoutput"></div>
+	</div>
+
+	<#include '/adminPage/script.html'/>
+	<#include '/adminPage/select_preview.html'/>
+	<script src="${ctx}/lib/auto-line-number/auto-line-number.js" type="text/javascript"></script>
+	<script src="${ctx}/lib/jsdifflib/difflib.js" type="text/javascript"></script>
+	<script src="${ctx}/lib/jsdifflib/diffview.js" type="text/javascript"></script>
+	<script src="${ctx}/lib/base64/base64.js" type="text/javascript"></script>
+	<script src="${ctx}/js/adminPage/bak/index.js?v=${jsrandom}" type="text/javascript"></script>
+</body>
+
+
+</html>

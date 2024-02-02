@@ -1,0 +1,56 @@
+package io.undertow.server.handlers.proxy.mod_cluster;
+
+import io.undertow.util.HttpString;
+
+interface MCMPConstants {
+   String ALIAS_STRING = "Alias";
+   String BALANCER_STRING = "Balancer";
+   String CONTEXT_STRING = "Context";
+   String DOMAIN_STRING = "Domain";
+   String FLUSH_PACKET_STRING = "flushpackets";
+   String FLUSH_WAIT_STRING = "flushwait";
+   String HOST_STRING = "Host";
+   String JVMROUTE_STRING = "JVMRoute";
+   String LOAD_STRING = "Load";
+   String MAXATTEMPTS_STRING = "Maxattempts";
+   String PING_STRING = "ping";
+   String PORT_STRING = "Port";
+   String REVERSED_STRING = "Reversed";
+   String SCHEME_STRING = "Scheme";
+   String SMAX_STRING = "smax";
+   String STICKYSESSION_STRING = "StickySession";
+   String STICKYSESSIONCOOKIE_STRING = "StickySessionCookie";
+   String STICKYSESSIONPATH_STRING = "StickySessionPath";
+   String STICKYSESSIONREMOVE_STRING = "StickySessionRemove";
+   String STICKYSESSIONFORCE_STRING = "StickySessionForce";
+   String TIMEOUT_STRING = "Timeout";
+   String TTL_STRING = "ttl";
+   String TYPE_STRING = "Type";
+   String WAITWORKER_STRING = "WaitWorker";
+   HttpString ALIAS = new HttpString("Alias");
+   HttpString BALANCER = new HttpString("Balancer");
+   HttpString CONTEXT = new HttpString("Context");
+   HttpString DOMAIN = new HttpString("Domain");
+   HttpString FLUSH_PACKET = new HttpString("flushpackets");
+   HttpString FLUSH_WAIT = new HttpString("flushwait");
+   HttpString HOST = new HttpString("Host");
+   HttpString JVMROUTE = new HttpString("JVMRoute");
+   HttpString LOAD = new HttpString("Load");
+   HttpString MAXATTEMPTS = new HttpString("Maxattempts");
+   HttpString PING = new HttpString("ping");
+   HttpString PORT = new HttpString("Port");
+   HttpString REVERSED = new HttpString("Reversed");
+   HttpString SCHEME = new HttpString("Scheme");
+   HttpString SMAX = new HttpString("smax");
+   HttpString STICKYSESSION = new HttpString("StickySession");
+   HttpString STICKYSESSIONCOOKIE = new HttpString("StickySessionCookie");
+   HttpString STICKYSESSIONPATH = new HttpString("StickySessionPath");
+   HttpString STICKYSESSIONREMOVE = new HttpString("StickySessionRemove");
+   HttpString STICKYSESSIONFORCE = new HttpString("StickySessionForce");
+   HttpString TIMEOUT = new HttpString("Timeout");
+   HttpString TTL = new HttpString("ttl");
+   HttpString TYPE = new HttpString("Type");
+   HttpString WAITWORKER = new HttpString("WaitWorker");
+   String TYPESYNTAX = "SYNTAX";
+   String TYPEMEM = "MEM";
+}

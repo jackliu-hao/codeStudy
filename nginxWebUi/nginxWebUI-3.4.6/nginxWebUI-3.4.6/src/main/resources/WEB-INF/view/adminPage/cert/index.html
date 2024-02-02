@@ -1,0 +1,369 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<#include "/adminPage/common.html"/>
+<style type="text/css">
+.layui-form-label {
+	width: 150px;
+}
+
+.layui-input-block {
+	margin-left: 180px;
+}
+
+.disabled{
+	background-color: #efefef;
+}
+
+</style>
+</head>
+<body class="layui-layout-body">
+	<div class="layui-layout layui-layout-admin">
+
+		<#include "/adminPage/header.html"/>
+		<#include "/adminPage/menu.html"/>
+
+		<div class="layui-body">
+			<!-- 内容主体区域 -->
+			<div style="padding: 15px">
+				<fieldset class="layui-elem-field layui-field-title">
+					<legend>${menuStr.cert}</legend>
+				</fieldset>
+
+				<form action="${ctx}/adminPage/cert" id="searchForm" method="post">
+					<div class="layui-form">
+						<div class="layui-inline">
+							<button type="button" class="layui-btn layui-btn-normal layui-btn-sm" onclick="add()">${certStr.add}</button>
+						</div>
+						
+						<div class="layui-inline">
+							<input type="text" name="keywords" class="layui-input layui-input-sm" value="${keywords}">
+						</div>
+
+						<button type="button" class="layui-btn layui-btn-sm" onclick="search()">${commonStr.search}</button>
+						
+						<div class="layui-inline">
+							<div class="layui-form-mid layui-word-aux proxyHttp">${certStr.tips}</div>
+						</div>
+					</div>
+
+					<input type="hidden" name="curr" value="${page.curr}"> 
+					<input type="hidden" name="limit" value="${page.limit}">
+				</form>
+
+				<table class="layui-table layui-form" lay-size="sm">
+					<thead>
+						<tr>
+							<th>${certStr.domain}</th>
+							<th>${certStr.getWay}</th>
+							<th>${certStr.dnsProvider}</th>
+							<th>${certStr.signTime}</th>
+							<th>${certStr.certPath}</th>
+							<th>${certStr.isAuto}</th>
+
+							<th>${commonStr.operation}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<#list page.records as cert>
+						<tr>
+							<td>${cert.domain}</td>
+							<td>
+								<#if cert.type==1>
+									${certStr.manualUp}
+								</#if> 
+								<#if cert.type==0>
+									${certStr.byApply}
+								</#if>
+								<#if cert.type==2>
+									${certStr.byDns}
+								</#if>
+							</td>
+
+							<td>	
+								<#if cert.type==0>
+									<#if cert.dnsType=='dp'> ${certStr.dnsPod} </#if> 
+									<#if cert.dnsType=='ali'> ${certStr.aliDns} </#if>
+									<#if cert.dnsType=='cf'> Cloudflare </#if>
+									<#if cert.dnsType=='gd'> Godaddy </#if>
+									<#if cert.dnsType=='hw'> ${certStr.huawei} </#if>
+								</#if>
+							</td>
+
+
+							<td>
+								<#if cert.makeTime!=null>
+									${certStr.signTime} : ${cert.makeTime?number_to_datetime?string('yyyy-MM-dd HH:mm:ss')} 
+								</#if>
+								<br>
+								<#if cert.endTime!=null>
+									${certStr.endTime} : ${cert.endTime?number_to_datetime?string('yyyy-MM-dd HH:mm:ss')} 
+								</#if>
+							</td>
+							
+							<td>pem: ${cert.pem} <br> key: ${cert.key}
+							</td>
+							<td>
+								<#if cert.type==0 || cert.type==2>
+									<input type="checkbox" name="switch" lay-filter="autoRenew" value="${cert.id}" lay-text="ON|OFF" lay-skin="switch" ${(cert.autoRenew==1)?string('checked','')}>
+								</#if>
+							</td>
+							<td>
+								<#if cert.type==0 || cert.type==2>
+									<#if cert.pem == null || cert.pem == "">
+									<div class="layui-inline">
+									<button type="button" class="layui-btn layui-btn-sm" onclick="issue('${cert.id}')">${commonStr.apply}</button>
+									</div>
+									</#if>
+									 
+									<#if cert.pem != null && cert.pem != "">
+									<div class="layui-inline">
+									<button type="button" class="layui-btn layui-btn-sm" onclick="renew('${cert.id}')">${certStr.renew}</button>
+									</div>
+									</#if>
+								</#if>
+
+								<div class="layui-inline">
+								<button type="button" class="layui-btn layui-btn-sm" onclick="edit('${cert.id}')">${commonStr.edit}</button> 
+								</div>
+								
+								<#if cert.type == 2>
+									<div class="layui-inline">
+									<button type="button" class="layui-btn layui-btn-normal layui-btn-sm" onclick="getTxtValue('${cert.id}')">${certStr.hostRecords}</button>
+									</div>
+								</#if>
+								
+								<#if cert.pem!=null && cert.pem!='' && cert.key!=null&& cert.key!=''>
+									<div class="layui-inline">
+									<button type="button" class="layui-btn layui-btn-normal layui-btn-sm" onclick="download('${cert.id}')">${certStr.download}</button>
+									</div>
+								</#if>
+								
+								
+								<div class="layui-inline">
+								<button type="button" class="layui-btn layui-btn-sm" onclick="clone('${cert.id}')">${commonStr.clone}</button>
+								</div>
+								<div class="layui-inline">
+								<button type="button" class="layui-btn layui-btn-danger layui-btn-sm" onclick="del('${cert.id}')">${commonStr.del}</button>
+								</div>
+								</td>
+								
+						</tr>
+						</#list>
+					</tbody>
+				</table>
+				<div id="pageInfo"></div>
+			</div>
+		</div>
+	</div>
+
+	<div style="height: 0px; width: 0px; overflow: hidden;">
+		<!-- 弹出框 -->
+		<div class="layui-form" id="windowDiv" style="padding: 15px; display: none">
+			<form id="addForm">
+				<input type="hidden" name="id" id="id">
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">${certStr.domain}</label>
+					<div class="layui-input-block">
+						<input type="text" name="domain" id="domain" class="layui-input" placeholder="${certStr.support}" >
+					</div>
+				</div>
+
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">${certStr.getWay}</label>
+					<div class="layui-input-inline">
+						<select name="type" id="type" lay-filter='type'>
+							<option value="0">${certStr.byApply}</option>
+							<option value="1">${certStr.manualUp}</option>
+							<option value="2">${certStr.byDns}</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="layui-form-item" id="encryptionDiv">
+					<label class="layui-form-label">${certStr.encryption}</label>
+					<div class="layui-input-inline">
+						<select name="encryption" id="encryption">
+							<option>RSA</option>
+							<option>ECC</option>
+						</select>
+					</div>
+				</div>
+
+				<div id="type0">
+					<div class="layui-form-item">
+						<label class="layui-form-label">${certStr.dnsProvider}</label>
+						<div class="layui-input-inline">
+							<select name="dnsType" id="dnsType" lay-filter='dnsType'>
+								<option value="ali">${certStr.aliDns}</option>
+								<option value="dp">${certStr.dnsPod}</option>
+								<option value="cf">Cloudflare</option>
+								<option value="gd">Godaddy</option>
+								<option value="hw">${certStr.huawei}</option>
+							</select>
+						</div>
+					</div>
+					
+
+					<div id="ali">
+						<div class="layui-form-item">
+							<label class="layui-form-label">Ali_Key</label>
+							<div class="layui-input-block">
+								<input type="text" name="aliKey" id="aliKey" class="layui-input">
+							</div>
+						</div>
+
+						<div class="layui-form-item">
+							<label class="layui-form-label">Ali_Secret</label>
+							<div class="layui-input-block">
+								<input type="text" name="aliSecret" id="aliSecret" class="layui-input">
+							</div>
+						</div>
+					</div>
+
+
+					<div id="dp">
+						<div class="layui-form-item">
+							<label class="layui-form-label">DP_Id</label>
+							<div class="layui-input-block">
+								<input type="text" name="dpId" id="dpId" class="layui-input">
+							</div>
+						</div>
+
+						<div class="layui-form-item">
+							<label class="layui-form-label">DP_Key</label>
+							<div class="layui-input-block">
+								<input type="text" name="dpKey" id="dpKey" class="layui-input">
+							</div>
+						</div>
+					</div>
+
+					<div id="cf">
+						<div class="layui-form-item">
+							<label class="layui-form-label">CF_Email</label>
+							<div class="layui-input-block">
+								<input type="text" name="cfEmail" id="cfEmail" class="layui-input">
+							</div>
+						</div>
+
+						<div class="layui-form-item">
+							<label class="layui-form-label">CF_Key</label>
+							<div class="layui-input-block">
+								<input type="text" name="cfKey" id="cfKey" class="layui-input">
+							</div>
+						</div>
+					</div>
+
+					<div id="gd">
+						<div class="layui-form-item">
+							<label class="layui-form-label">GD_Key</label>
+							<div class="layui-input-block">
+								<input type="text" name="gdKey" id="gdKey" class="layui-input">
+							</div>
+						</div>
+
+						<div class="layui-form-item">
+							<label class="layui-form-label">GD_Secret</label>
+							<div class="layui-input-block">
+								<input type="text" name="gdSecret" id="gdSecret" class="layui-input">
+							</div>
+						</div>
+					</div>
+
+
+					<div id="hw">
+						<div class="layui-form-item">
+							<label class="layui-form-label">HW_DomainName</label>
+							<div class="layui-input-block">
+								<input type="text" name="hwDomainName" id="hwDomainName" class="layui-input">
+							</div>
+						</div>
+						
+						<div class="layui-form-item">
+							<label class="layui-form-label">HW_Username</label>
+							<div class="layui-input-block">
+								<input type="text" name="hwUsername" id="hwUsername" class="layui-input">
+							</div>
+						</div>
+
+						<div class="layui-form-item">
+							<label class="layui-form-label">HW_Password</label>
+							<div class="layui-input-block">
+								<input type="text" name="hwPassword" id="hwPassword" class="layui-input">
+							</div>
+						</div>
+
+						<div class="layui-form-item">
+							<label class="layui-form-label">HW_ProjectID</label>
+							<div class="layui-input-block">
+								<input type="text" name="hwProjectId" id="hwProjectId" class="layui-input">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div id="type1">
+					<div class="layui-form-item">
+						<label class="layui-form-label">pem ${commonStr.file}</label>
+						<div class="layui-input-block">
+							<button type="button" class="layui-btn layui-btn-sm liteBtn" style="width: 90px;" id="pemBtn">${commonStr.upload} pem</button>
+
+							<button type="button" class="layui-btn layui-btn-sm layui-btn-normal liteBtn" onclick="selectPem()">${commonStr.selectPath}</button>
+
+							<input type="hidden" name="pem" id="pem" class="layui-input">
+							<div class="layui-form-mid layui-word-aux" id="pemPath"></div>
+
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">key ${commonStr.file}</label>
+						<div class="layui-input-block">
+							<button type="button" class="layui-btn layui-btn-sm liteBtn" style="width: 90px;" id="keyBtn">${commonStr.upload} key</button>
+
+							<button type="button" class="layui-btn layui-btn-sm layui-btn-normal liteBtn" onclick="selectKey()">${commonStr.selectPath}</button>
+
+							<input type="hidden" name="key" id="key" class="layui-input">
+							<div class="layui-form-mid layui-word-aux" id="keyPath"></div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="layui-form-item center">
+					<button type="button" class="layui-btn layui-btn-normal" onclick="addOver()">${commonStr.submit}</button>
+					<button type="button" class="layui-btn" onclick="layer.closeAll()">${commonStr.close}</button>
+				</div>
+			</form>
+		</div>
+
+		<div class="layui-form" id="txtDiv" style="padding: 15px; display: none">
+			<div>
+
+				<div class="layui-form-item">
+					<div>${certStr.dnsDescr}</div>
+					<table class="layui-table layui-form" lay-size="sm">
+						<thead>
+							<tr>
+								<th>${certStr.hostRecords}</th>
+								<th>${certStr.recordsType}</th>
+								<th>${certStr.recordsValue}</th>
+							</tr>
+						</thead>
+						<tbody id="notice">
+							
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<#include '/adminPage/script.html'/>
+	<#include '/adminPage/select_root.html'/>
+	<script src="${ctx}/js/adminPage/cert/index.js?v=${jsrandom}" type="text/javascript"></script>
+</body>
+
+
+</html>

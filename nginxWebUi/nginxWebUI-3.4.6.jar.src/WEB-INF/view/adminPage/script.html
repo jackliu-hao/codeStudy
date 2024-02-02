@@ -1,0 +1,21 @@
+
+<script src="${ctx}/lib/layui/layui.js" type="text/javascript"></script>
+
+<script src="${ctx}/js/adminPage/base.js?v=${jsrandom}" type="text/javascript"></script>
+<script src="${ctx}/lib/ztree/js/jquery.ztree.core.js" type="text/javascript"></script>
+<script src="${ctx}/lib/ztree/js/jquery.ztree.excheck.js" type="text/javascript"></script>
+
+<script src="${ctx}/lib/echarts/echarts.min.js" type="text/javascript"></script>
+<script>
+	//根路径
+	var ctx = '${ctx}';
+
+	// 翻页参数
+	var page = {
+			count : '${page.count!0}',
+			curr : '${page.curr!1}',
+			limit : '${page.limit!10}'
+	};
+	
+</script>
+

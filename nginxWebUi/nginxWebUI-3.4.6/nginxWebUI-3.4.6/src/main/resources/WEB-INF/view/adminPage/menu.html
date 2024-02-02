@@ -1,0 +1,86 @@
+<div class="layui-side layui-bg-black">
+	<div class="layui-side-scroll">
+		<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+		<ul class="layui-nav layui-nav-tree" lay-filter="test">
+
+			<li class="layui-nav-item layui-nav-itemed">
+				<a class="" href="javascript:;">
+					<span style="color: aqua;" id="localType">
+					</span>
+				</a>
+				<dl class="layui-nav-child">
+					<dd style="border-bottom: 1px solid #555;">
+						<a href="${ctx}/adminPage/monitor">${menuStr.monitor}</a>
+					</dd>
+					
+					
+					<dd>
+						<a href="${ctx}/adminPage/basic">${menuStr.basic}</a>
+					</dd>
+					<dd>
+						<a href="${ctx}/adminPage/http">${menuStr.http}</a>
+					</dd>
+					<dd>
+						<a href="${ctx}/adminPage/server">${menuStr.server}</a>
+					</dd>
+					<dd>
+						<a href="${ctx}/adminPage/stream">${menuStr.stream}</a>
+					</dd>
+					<dd style="border-bottom: 1px solid #555;">
+						<a href="${ctx}/adminPage/upstream">${menuStr.upstream}</a>
+					</dd>
+					
+					
+					<dd>
+						<a href="${ctx}/adminPage/conf">${menuStr.conf}</a>
+					</dd>
+					
+					<dd>
+						<a href="${ctx}/adminPage/template">${menuStr.template}</a>
+					</dd>
+					<dd>
+						<a href="${ctx}/adminPage/www">${menuStr.www}</a>
+					</dd>
+					<dd>
+						<a href="${ctx}/adminPage/password">${menuStr.password}</a>
+					</dd>
+					<dd>
+						<a href="${ctx}/adminPage/cert">${menuStr.cert}</a>
+					</dd>
+					
+					<dd>
+						<a href="${ctx}/adminPage/log">${menuStr.log}</a>
+					</dd>
+					<dd>
+						<a href="${ctx}/adminPage/operateLog">${menuStr.operateLog}</a>
+					</dd>
+					<dd>
+						<a href="${ctx}/adminPage/export">${menuStr.export}</a>
+					</dd>
+					
+					
+				</dl>
+			</li>
+			
+			<li class="layui-nav-item layui-nav-itemed">
+				<a class="" href="javascript:;">
+					<span style="color: aqua;">${menuStr.remoteTitle}</span>
+				</a>
+				<dl class="layui-nav-child">
+					<dd>
+						<a href="${ctx}/adminPage/remote">${menuStr.remote}</a>
+					</dd>
+					<#if admin.type == 0 || showAdmin == 'true'>
+						<dd>
+							<a href="${ctx}/adminPage/admin">${menuStr.admin}</a>
+						</dd>
+					</#if>
+			
+					<dd>
+						<a href="${ctx}/adminPage/about">${menuStr.about}</a>
+					</dd>
+				</dl>
+			</li>
+		</ul>
+	</div>
+</div>

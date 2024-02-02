@@ -1,0 +1,199 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<#include "/adminPage/common.html"/>
+<link rel="stylesheet" type="text/css" href="${ctx}/lib/jsdifflib/diffview.css" />
+<style type="text/css">
+.name {
+	padding: 10px;
+	padding-left: 0px;
+	font-size: 16px;
+}
+
+.title {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	height:30px;
+	line-height:30px;
+	cursor: pointer;
+}
+
+table.diff {
+	width: 100%;
+}
+
+
+.long{
+	width: 150px!important;
+}
+
+
+.layui-form-radio{
+	width: 700px;
+}
+
+input[type='radio']{
+	width: 1000px;
+}
+
+</style>
+</head>
+<body class="layui-layout-body">
+	<div class="layui-layout layui-layout-admin">
+
+		<#include "/adminPage/header.html"/>
+		<#include "/adminPage/menu.html"/>
+
+		<div class="layui-body">
+			<!-- 内容主体区域 -->
+			<div style="padding: 15px">
+				<fieldset class="layui-elem-field layui-field-title">
+					<legend>${menuStr.conf}</legend>
+				</fieldset>
+				<form id="addForm">
+					<div class="layui-form">
+						<div>
+							<div class="layui-input-inline">
+								<label class="layui-form-label" style="width: 100px;">${confStr.nginxExe}<span class="red">*</span></label>
+							</div>
+							<div class="layui-input-inline">
+								<input type="text" id="nginxExe" name="nginxExe" class="layui-input layui-input-sm" style="width: 210px;" value="${nginxExe}" oninput="saveCmd()">
+							</div>
+							<div class="layui-input-inline">
+								<i class="layui-icon layui-icon-export" onclick="selectRootCustom('nginxExe')"></i>
+							</div>
+
+							<div class="layui-input-inline">
+								<label class="layui-form-label" style="width: 100px;">${confStr.nginxDir}</label>
+							</div>
+							<div class="layui-input-inline">
+								<input type="text" id="nginxDir" name="nginxDir" class="layui-input layui-input-sm" style="width: 210px;" value="${nginxDir}" oninput="saveCmd()">
+							</div>
+							<div class="layui-input-inline">
+								<i class="layui-icon layui-icon-export" onclick="selectRootCustom('nginxDir')"></i>
+							</div>
+						</div>
+
+						<div style="margin-top: 20px;">
+							<div class="layui-inline">
+								<button type="button" class="layui-btn layui-btn-sm" onclick="diffUsingJS()">${confStr.compare}</button>
+							</div>
+							
+							<div class="layui-inline">
+								<button type="button" class="layui-btn layui-btn-sm layui-btn-normal" onclick="check()">${confStr.verifyFile}</button>
+							</div>
+							
+							<div class="layui-inline">
+								<button type="button" class="layui-btn layui-btn-sm layui-btn-normal" onclick="replace()">${confStr.replaceFile}</button>
+							</div>
+							
+							<div class="layui-inline">
+								<button type="button" class="layui-btn layui-btn-sm layui-btn-normal" onclick="reload()">${confStr.reload}</button>
+							</div>
+
+							
+							<div class="layui-inline">
+								<label class="layui-form-label" style="width: 120px;">${confStr.decompose}</label>
+							</div>
+							<div class="layui-inline">
+								<input type="checkbox" name="switch" lay-filter="decompose" lay-text="ON|OFF" lay-skin="switch" ${(decompose=='true')?string('checked','')}>
+							</div>
+
+							<div class="layui-inline" style="margin-left: 20px;">
+								<button type="button" class="layui-btn layui-btn-sm" onclick="runCmd('cmdStart')">${confStr.start}</button>
+							</div>
+							<div class="layui-inline">
+								<button type="button" class="layui-btn layui-btn-sm" onclick="runCmd('cmdStop')">${confStr.stop}</button>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-label" style="width: 150px;" id="nginxStatus"></label>
+							</div>
+							<div class="layui-input-inline" >
+								<button type="button" class="layui-btn layui-btn-sm layui-btn-normal" onclick="showBak()">${bakStr.bakFile}</button>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="layui-form" style="margin-top: 10px; display: flex;">
+
+						<div style="width: 47%;">
+							<div class="layui-inline" style="padding-bottom: 5px;width: 100%;">
+								<label class="layui-form-label ellipsis" style="width: 80%;text-align: left;">${confStr.build}：${tmp}</label>
+							</div>
+							<textarea class="layui-textarea conf" id="nginxContent" name="nginxContent" style="height: 500px; resize: none;" spellcheck="false"></textarea>
+							
+							<div id="nginxContentOther"></div>
+						</div>
+
+
+						<div style="width: 47%;">
+							<div class="layui-inline" style="padding-bottom: 5px;">
+								<div class="layui-input-inline">
+									<label class="layui-form-label" style="width: 110px;text-align: left;"><span class="red">*</span>${confStr.target}：</label>
+								</div>
+								<div class="layui-input-inline">
+									<input type="text" id="nginxPath" class="layui-input layui-input-sm" name="nginxPath" style="width: 250px;" value="${nginxPath}" oninput="saveCmd()">
+								</div>
+								<div class="layui-input-inline">
+									<i class="layui-icon layui-icon-export" onclick="selectRootCustom('nginxPath')"></i>
+								</div>
+							</div>
+							
+							<textarea class="layui-textarea org" id="org" name="org" style="height: 500px; margin-left: 10px;resize: none; background-color: #ededed;" readonly="readonly" spellcheck="false"></textarea>
+
+							<div id="orgOther"></div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div style="height: 0px; width: 0px; overflow: hidden;">
+		<div id="diffoutput"></div>
+
+		<div id="cmdForm" style="padding: 15px;display: none;">
+			<div class="layui-form">
+				<div class="layui-form-item" id="nginxStop">
+					<div class="layui-input-inline">
+						<input type="radio" name="cmd" lang="cmdStop" id="stopNormal" title=""><br>
+						<input type="radio" name="cmd" lang="cmdStop" title="pkill nginx"><br>
+						<input type="radio" name="cmd" lang="cmdStop" title="taskkill /f /im nginx.exe"><br>
+						<input type="radio" name="cmd" lang="cmdStop" title="systemctl stop nginx"><br>
+						<input type="radio" name="cmd" lang="cmdStop" title="service nginx stop"><br>
+						<input type="radio" name="cmd" lang="cmdStop" title="net stop nginx"><br>
+					</div>
+				</div>
+				
+				<div class="layui-form-item" id="nginxStart">
+					<div class="layui-input-inline">
+						<input type="radio" name="cmd" lang="cmdStart" id="startNormal" title=""><br>
+						<input type="radio" name="cmd" lang="cmdStart" title="systemctl start nginx"><br>
+						<input type="radio" name="cmd" lang="cmdStart" title="service nginx start"><br>
+						<input type="radio" name="cmd" lang="cmdStart" title="net start nginx"><br>
+						
+					</div>
+				</div>
+
+				<div class="layui-form-item" style="text-align: center;">
+					<button type="button" class="layui-btn layui-btn-normal" onclick="runCmdOver()">${commonStr.submit}</button>
+					<button type="button" class="layui-btn" onclick="layer.closeAll()">${commonStr.close}</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<#include '/adminPage/script.html'/>
+	<#include '/adminPage/select_root.html'/>
+	<script src="${ctx}/lib/auto-line-number/auto-line-number.js" type="text/javascript"></script>
+	<script src="${ctx}/lib/jsdifflib/difflib.js" type="text/javascript"></script>
+	<script src="${ctx}/lib/jsdifflib/diffview.js" type="text/javascript"></script>
+	<script src="${ctx}/lib/base64/base64.js" type="text/javascript"></script>
+	<script src="${ctx}/js/adminPage/conf/index.js?v=${jsrandom}" type="text/javascript"></script>
+</body>
+
+
+</html>

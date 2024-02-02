@@ -1,0 +1,11 @@
+package com.sun.mail.iap;
+
+public interface ResponseHandler {
+  void handleResponse(Response paramResponse);
+}
+
+
+/* Location:              G:\git\codeReviewLog\nginxWebUi\nginxWebUI-3.4.6.jar!\com\sun\mail\iap\ResponseHandler.class
+ * Java compiler version: 4 (48.0)
+ * JD-Core Version:       1.1.3
+ */
