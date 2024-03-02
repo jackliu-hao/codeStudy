@@ -6396,3 +6396,228 @@ Caused by: java.sql.SQLException: Incorrect DATETIME value: '2023-09-31 23:59:59
 2024/02/24-21:09:57 DEBUG [http-nio-8080-exec-11] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==>  Preparing: SELECT COUNT(id) FROM jsh_msg WHERE jsh_msg.tenant_id = 63 AND 1 = 1 AND ifnull(delete_Flag, '0') != '1' AND status = '1' 
 2024/02/24-21:09:57 DEBUG [http-nio-8080-exec-11] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==> Parameters: 
 2024/02/24-21:09:57 DEBUG [http-nio-8080-exec-11] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - <==      Total: 1
+2024/02/24-21:11:22 DEBUG [http-nio-8080-exec-3] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==>  Preparing: SELECT COUNT(id) FROM jsh_msg WHERE jsh_msg.tenant_id = 63 AND 1 = 1 AND ifnull(delete_Flag, '0') != '1' AND status = '1' 
+2024/02/24-21:11:22 DEBUG [http-nio-8080-exec-3] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==> Parameters: 
+2024/02/24-21:11:22 DEBUG [http-nio-8080-exec-3] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - <==      Total: 1
+2024/02/24-21:12:21 DEBUG [http-nio-8080-exec-4] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==>  Preparing: SELECT COUNT(id) FROM jsh_msg WHERE jsh_msg.tenant_id = 63 AND 1 = 1 AND ifnull(delete_Flag, '0') != '1' AND status = '1' 
+2024/02/24-21:12:21 DEBUG [http-nio-8080-exec-4] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==> Parameters: 
+2024/02/24-21:12:21 DEBUG [http-nio-8080-exec-4] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - <==      Total: 1
+2024/02/24-21:13:22 DEBUG [http-nio-8080-exec-2] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==>  Preparing: SELECT COUNT(id) FROM jsh_msg WHERE jsh_msg.tenant_id = 63 AND 1 = 1 AND ifnull(delete_Flag, '0') != '1' AND status = '1' 
+2024/02/24-21:13:22 DEBUG [http-nio-8080-exec-2] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==> Parameters: 
+2024/02/24-21:13:22 DEBUG [http-nio-8080-exec-2] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - <==      Total: 1
+2024/02/24-21:14:21 DEBUG [http-nio-8080-exec-9] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==>  Preparing: SELECT COUNT(id) FROM jsh_msg WHERE jsh_msg.tenant_id = 63 AND 1 = 1 AND ifnull(delete_Flag, '0') != '1' AND status = '1' 
+2024/02/24-21:14:21 DEBUG [http-nio-8080-exec-9] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==> Parameters: 
+2024/02/24-21:14:22 DEBUG [http-nio-8080-exec-9] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - <==      Total: 1
+2024/02/24-21:15:22 DEBUG [http-nio-8080-exec-5] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==>  Preparing: SELECT COUNT(id) FROM jsh_msg WHERE jsh_msg.tenant_id = 63 AND 1 = 1 AND ifnull(delete_Flag, '0') != '1' AND status = '1' 
+2024/02/24-21:15:22 DEBUG [http-nio-8080-exec-5] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==> Parameters: 
+2024/02/24-21:15:22 DEBUG [http-nio-8080-exec-5] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - <==      Total: 1
+2024/02/24-21:16:21 DEBUG [http-nio-8080-exec-10] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==>  Preparing: SELECT COUNT(id) FROM jsh_msg WHERE jsh_msg.tenant_id = 63 AND 1 = 1 AND ifnull(delete_Flag, '0') != '1' AND status = '1' 
+2024/02/24-21:16:21 DEBUG [http-nio-8080-exec-10] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==> Parameters: 
+2024/02/24-21:16:21 DEBUG [http-nio-8080-exec-10] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - <==      Total: 1
+2024/02/24-21:17:22 DEBUG [http-nio-8080-exec-6] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==>  Preparing: SELECT COUNT(id) FROM jsh_msg WHERE jsh_msg.tenant_id = 63 AND 1 = 1 AND ifnull(delete_Flag, '0') != '1' AND status = '1' 
+2024/02/24-21:17:22 DEBUG [http-nio-8080-exec-6] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==> Parameters: 
+2024/02/24-21:17:22 DEBUG [http-nio-8080-exec-6] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - <==      Total: 1
+2024/02/24-21:18:21 DEBUG [http-nio-8080-exec-8] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==>  Preparing: SELECT COUNT(id) FROM jsh_msg WHERE jsh_msg.tenant_id = 63 AND 1 = 1 AND ifnull(delete_Flag, '0') != '1' AND status = '1' 
+2024/02/24-21:18:21 DEBUG [http-nio-8080-exec-8] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==> Parameters: 
+2024/02/24-21:18:21 DEBUG [http-nio-8080-exec-8] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - <==      Total: 1
+2024/02/24-21:19:22 DEBUG [http-nio-8080-exec-7] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==>  Preparing: SELECT COUNT(id) FROM jsh_msg WHERE jsh_msg.tenant_id = 63 AND 1 = 1 AND ifnull(delete_Flag, '0') != '1' AND status = '1' 
+2024/02/24-21:19:22 DEBUG [http-nio-8080-exec-7] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==> Parameters: 
+2024/02/24-21:19:22 DEBUG [http-nio-8080-exec-7] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - <==      Total: 1
+2024/02/24-21:20:21 DEBUG [http-nio-8080-exec-11] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==>  Preparing: SELECT COUNT(id) FROM jsh_msg WHERE jsh_msg.tenant_id = 63 AND 1 = 1 AND ifnull(delete_Flag, '0') != '1' AND status = '1' 
+2024/02/24-21:20:21 DEBUG [http-nio-8080-exec-11] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==> Parameters: 
+2024/02/24-21:20:21 DEBUG [http-nio-8080-exec-11] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - <==      Total: 1
+2024/02/24-21:20:57 DEBUG [http-nio-8080-exec-3] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==>  Preparing: SELECT COUNT(id) FROM jsh_msg WHERE jsh_msg.tenant_id = 63 AND 1 = 1 AND ifnull(delete_Flag, '0') != '1' AND status = '1' 
+2024/02/24-21:20:58 DEBUG [http-nio-8080-exec-3] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==> Parameters: 
+2024/02/24-21:20:58 DEBUG [http-nio-8080-exec-3] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - <==      Total: 1
+2024/02/24-21:21:56 DEBUG [http-nio-8080-exec-4] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==>  Preparing: SELECT COUNT(id) FROM jsh_msg WHERE jsh_msg.tenant_id = 63 AND 1 = 1 AND ifnull(delete_Flag, '0') != '1' AND status = '1' 
+2024/02/24-21:21:56 DEBUG [http-nio-8080-exec-4] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==> Parameters: 
+2024/02/24-21:21:56 DEBUG [http-nio-8080-exec-4] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - <==      Total: 1
+2024/02/24-21:22:57 DEBUG [http-nio-8080-exec-2] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==>  Preparing: SELECT COUNT(id) FROM jsh_msg WHERE jsh_msg.tenant_id = 63 AND 1 = 1 AND ifnull(delete_Flag, '0') != '1' AND status = '1' 
+2024/02/24-21:22:57 DEBUG [http-nio-8080-exec-2] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==> Parameters: 
+2024/02/24-21:22:57 DEBUG [http-nio-8080-exec-2] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - <==      Total: 1
+2024/02/24-21:23:57 DEBUG [http-nio-8080-exec-9] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==>  Preparing: SELECT COUNT(id) FROM jsh_msg WHERE jsh_msg.tenant_id = 63 AND 1 = 1 AND ifnull(delete_Flag, '0') != '1' AND status = '1' 
+2024/02/24-21:23:57 DEBUG [http-nio-8080-exec-9] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==> Parameters: 
+2024/02/24-21:23:57 DEBUG [http-nio-8080-exec-9] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - <==      Total: 1
+2024/02/24-21:25:21 DEBUG [http-nio-8080-exec-5] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==>  Preparing: SELECT COUNT(id) FROM jsh_msg WHERE jsh_msg.tenant_id = 63 AND 1 = 1 AND ifnull(delete_Flag, '0') != '1' AND status = '1' 
+2024/02/24-21:25:22 DEBUG [http-nio-8080-exec-5] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==> Parameters: 
+2024/02/24-21:25:22 DEBUG [http-nio-8080-exec-5] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - <==      Total: 1
+2024/02/24-21:26:21 DEBUG [http-nio-8080-exec-10] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==>  Preparing: SELECT COUNT(id) FROM jsh_msg WHERE jsh_msg.tenant_id = 63 AND 1 = 1 AND ifnull(delete_Flag, '0') != '1' AND status = '1' 
+2024/02/24-21:26:21 DEBUG [http-nio-8080-exec-10] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==> Parameters: 
+2024/02/24-21:26:21 DEBUG [http-nio-8080-exec-10] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - <==      Total: 1
+2024/02/24-21:26:57 DEBUG [http-nio-8080-exec-6] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==>  Preparing: SELECT COUNT(id) FROM jsh_msg WHERE jsh_msg.tenant_id = 63 AND 1 = 1 AND ifnull(delete_Flag, '0') != '1' AND status = '1' 
+2024/02/24-21:26:58 DEBUG [http-nio-8080-exec-6] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==> Parameters: 
+2024/02/24-21:26:58 DEBUG [http-nio-8080-exec-6] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - <==      Total: 1
+2024/02/24-21:28:22 DEBUG [http-nio-8080-exec-8] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==>  Preparing: SELECT COUNT(id) FROM jsh_msg WHERE jsh_msg.tenant_id = 63 AND 1 = 1 AND ifnull(delete_Flag, '0') != '1' AND status = '1' 
+2024/02/24-21:28:22 DEBUG [http-nio-8080-exec-8] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==> Parameters: 
+2024/02/24-21:28:22 DEBUG [http-nio-8080-exec-8] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - <==      Total: 1
+2024/02/24-21:29:21 DEBUG [http-nio-8080-exec-7] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==>  Preparing: SELECT COUNT(id) FROM jsh_msg WHERE jsh_msg.tenant_id = 63 AND 1 = 1 AND ifnull(delete_Flag, '0') != '1' AND status = '1' 
+2024/02/24-21:29:21 DEBUG [http-nio-8080-exec-7] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==> Parameters: 
+2024/02/24-21:29:21 DEBUG [http-nio-8080-exec-7] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - <==      Total: 1
+2024/02/24-21:30:22 DEBUG [http-nio-8080-exec-11] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==>  Preparing: SELECT COUNT(id) FROM jsh_msg WHERE jsh_msg.tenant_id = 63 AND 1 = 1 AND ifnull(delete_Flag, '0') != '1' AND status = '1' 
+2024/02/24-21:30:22 DEBUG [http-nio-8080-exec-11] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==> Parameters: 
+2024/02/24-21:30:22 DEBUG [http-nio-8080-exec-11] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - <==      Total: 1
+2024/02/24-21:31:21 DEBUG [http-nio-8080-exec-3] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==>  Preparing: SELECT COUNT(id) FROM jsh_msg WHERE jsh_msg.tenant_id = 63 AND 1 = 1 AND ifnull(delete_Flag, '0') != '1' AND status = '1' 
+2024/02/24-21:31:21 DEBUG [http-nio-8080-exec-3] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==> Parameters: 
+2024/02/24-21:31:21 DEBUG [http-nio-8080-exec-3] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - <==      Total: 1
+2024/02/24-21:32:21 DEBUG [http-nio-8080-exec-4] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==>  Preparing: SELECT COUNT(id) FROM jsh_msg WHERE jsh_msg.tenant_id = 63 AND 1 = 1 AND ifnull(delete_Flag, '0') != '1' AND status = '1' 
+2024/02/24-21:32:21 DEBUG [http-nio-8080-exec-4] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==> Parameters: 
+2024/02/24-21:32:21 DEBUG [http-nio-8080-exec-4] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - <==      Total: 1
+2024/02/24-21:33:21 DEBUG [http-nio-8080-exec-2] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==>  Preparing: SELECT COUNT(id) FROM jsh_msg WHERE jsh_msg.tenant_id = 63 AND 1 = 1 AND ifnull(delete_Flag, '0') != '1' AND status = '1' 
+2024/02/24-21:33:21 DEBUG [http-nio-8080-exec-2] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==> Parameters: 
+2024/02/24-21:33:21 DEBUG [http-nio-8080-exec-2] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - <==      Total: 1
+2024/02/24-21:35:22 DEBUG [http-nio-8080-exec-5] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==>  Preparing: SELECT COUNT(id) FROM jsh_msg WHERE jsh_msg.tenant_id = 63 AND 1 = 1 AND ifnull(delete_Flag, '0') != '1' AND status = '1' 
+2024/02/24-21:35:22 DEBUG [http-nio-8080-exec-9] com.jsh.erp.datasource.mappers.SystemConfigMapperEx.selectByConditionSystemConfig - ==>  Preparing: SELECT * FROM jsh_system_config WHERE 1 = 1 AND company_name LIKE '%%' AND ifnull(delete_flag, '0') != '1' LIMIT ?, ? 
+2024/02/24-21:35:22 DEBUG [http-nio-8080-exec-5] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==> Parameters: 
+2024/02/24-21:35:22 DEBUG [http-nio-8080-exec-5] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - <==      Total: 1
+2024/02/24-21:35:22 DEBUG [http-nio-8080-exec-9] com.jsh.erp.datasource.mappers.SystemConfigMapperEx.selectByConditionSystemConfig - ==> Parameters: 0(Integer), 100(Integer)
+2024/02/24-21:35:22 DEBUG [http-nio-8080-exec-9] com.jsh.erp.datasource.mappers.SystemConfigMapperEx.selectByConditionSystemConfig - <==      Total: 1
+2024/02/24-21:35:22 DEBUG [http-nio-8080-exec-9] com.jsh.erp.datasource.mappers.SystemConfigMapperEx.countsBySystemConfig - ==>  Preparing: SELECT COUNT(id) FROM jsh_system_config WHERE 1 = 1 AND company_name LIKE '%%' AND ifnull(delete_flag, '0') != '1' 
+2024/02/24-21:35:22 DEBUG [http-nio-8080-exec-9] com.jsh.erp.datasource.mappers.SystemConfigMapperEx.countsBySystemConfig - ==> Parameters: 
+2024/02/24-21:35:22 DEBUG [http-nio-8080-exec-9] com.jsh.erp.datasource.mappers.SystemConfigMapperEx.countsBySystemConfig - <==      Total: 1
+2024/02/24-21:35:22 DEBUG [http-nio-8080-exec-10] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==>  Preparing: SELECT COUNT(id) FROM jsh_msg WHERE jsh_msg.tenant_id = 63 AND 1 = 1 AND ifnull(delete_Flag, '0') != '1' AND status = '1' 
+2024/02/24-21:35:22 DEBUG [http-nio-8080-exec-10] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==> Parameters: 
+2024/02/24-21:35:22 DEBUG [http-nio-8080-exec-10] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - <==      Total: 1
+2024/02/24-21:36:50 DEBUG [http-nio-8080-exec-8] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==>  Preparing: SELECT COUNT(id) FROM jsh_msg WHERE jsh_msg.tenant_id = 63 AND 1 = 1 AND ifnull(delete_Flag, '0') != '1' AND status = '1' 
+2024/02/24-21:36:50 DEBUG [http-nio-8080-exec-8] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==> Parameters: 
+2024/02/24-21:36:50 DEBUG [http-nio-8080-exec-8] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - <==      Total: 1
+2024/02/24-21:36:50 DEBUG [http-nio-8080-exec-6] com.jsh.erp.datasource.mappers.LogMapperEx.selectByConditionLog - ==>  Preparing: SELECT l.*, u.username userName FROM jsh_log l LEFT JOIN jsh_user u ON l.user_id = u.id AND ifnull(u.status, '0') NOT IN ('1', '2') WHERE 1 = 1 AND l.operation LIKE '%%' AND l.client_ip LIKE '%%' AND l.create_time >= '' AND l.create_time <= '' AND l.content LIKE '%%' ORDER BY l.create_time DESC LIMIT ?, ? 
+2024/02/24-21:36:50 DEBUG [http-nio-8080-exec-6] com.jsh.erp.datasource.mappers.LogMapperEx.selectByConditionLog - ==> Parameters: 0(Integer), 100(Integer)
+2024/02/24-21:36:50 ERROR [http-nio-8080-exec-6] com.jsh.erp.service.log.LogService - 异常码[300],异常提示[数据查询异常],异常[{}]
+org.springframework.jdbc.UncategorizedSQLException: 
+### Error querying database.  Cause: java.sql.SQLException: Incorrect DATETIME value: ''
+### The error may exist in file [G:\git\codeReviewLog\JSH_ERP-v2.3\JSH_ERP-v2.3\target\classes\mapper_xml\LogMapperEx.xml]
+### The error may involve com.jsh.erp.datasource.mappers.LogMapperEx.selectByConditionLog-Inline
+### The error occurred while setting parameters
+### SQL: SELECT l.*, u.username userName FROM jsh_log l LEFT JOIN jsh_user u ON l.user_id = u.id AND ifnull(u.status, '0') NOT IN ('1', '2') WHERE 1 = 1 AND l.operation LIKE '%%' AND l.client_ip LIKE '%%' AND l.create_time >= '' AND l.create_time <= '' AND l.content LIKE '%%' ORDER BY l.create_time DESC LIMIT ?, ?
+### Cause: java.sql.SQLException: Incorrect DATETIME value: ''
+; uncategorized SQLException; SQL state [HY000]; error code [1525]; Incorrect DATETIME value: ''; nested exception is java.sql.SQLException: Incorrect DATETIME value: ''
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:89)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:81)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:81)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:73)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:446)
+	at com.sun.proxy.$Proxy83.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230)
+	at com.baomidou.mybatisplus.core.override.PageMapperMethod.executeForMany(PageMapperMethod.java:173)
+	at com.baomidou.mybatisplus.core.override.PageMapperMethod.execute(PageMapperMethod.java:86)
+	at com.baomidou.mybatisplus.core.override.PageMapperProxy.invoke(PageMapperProxy.java:64)
+	at com.sun.proxy.$Proxy94.selectByConditionLog(Unknown Source)
+	at com.jsh.erp.service.log.LogService.select(LogService.java:62)
+	at com.jsh.erp.service.log.LogService$$FastClassBySpringCGLIB$$68f17e3b.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:685)
+	at com.jsh.erp.service.log.LogService$$EnhancerBySpringCGLIB$$e2f94fd0.select(<generated>)
+	at com.jsh.erp.service.log.LogComponent.getLogList(LogComponent.java:40)
+	at com.jsh.erp.service.log.LogComponent.select(LogComponent.java:28)
+	at com.jsh.erp.service.CommonQueryManager.select(CommonQueryManager.java:48)
+	at com.jsh.erp.service.CommonQueryManager$$FastClassBySpringCGLIB$$e1f1f1d0.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:685)
+	at com.jsh.erp.service.CommonQueryManager$$EnhancerBySpringCGLIB$$35e10faf.select(<generated>)
+	at com.jsh.erp.controller.ResourceController.getList(ResourceController.java:66)
+	at sun.reflect.GeneratedMethodAccessor94.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:209)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:870)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:776)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:991)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:978)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:870)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:855)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.jsh.erp.filter.LogCostFilter.doFilter(LogCostFilter.java:61)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:496)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.sql.SQLException: Incorrect DATETIME value: ''
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:354)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at sun.reflect.GeneratedMethodAccessor110.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59)
+	at com.sun.proxy.$Proxy189.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:63)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at sun.reflect.GeneratedMethodAccessor101.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:63)
+	at com.sun.proxy.$Proxy188.query(Unknown Source)
+	at sun.reflect.GeneratedMethodAccessor101.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.ibatis.plugin.Invocation.proceed(Invocation.java:49)
+	at com.baomidou.mybatisplus.extension.plugins.PerformanceInterceptor.intercept(PerformanceInterceptor.java:174)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
+	at com.sun.proxy.$Proxy188.query(Unknown Source)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:326)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)
+	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	... 75 common frames omitted
+2024/02/24-21:37:21 DEBUG [http-nio-8080-exec-7] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==>  Preparing: SELECT COUNT(id) FROM jsh_msg WHERE jsh_msg.tenant_id = 63 AND 1 = 1 AND ifnull(delete_Flag, '0') != '1' AND status = '1' 
+2024/02/24-21:37:21 DEBUG [http-nio-8080-exec-7] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==> Parameters: 
+2024/02/24-21:37:21 DEBUG [http-nio-8080-exec-7] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - <==      Total: 1
+2024/02/24-21:38:21 DEBUG [http-nio-8080-exec-11] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==>  Preparing: SELECT COUNT(id) FROM jsh_msg WHERE jsh_msg.tenant_id = 63 AND 1 = 1 AND ifnull(delete_Flag, '0') != '1' AND status = '1' 
+2024/02/24-21:38:22 DEBUG [http-nio-8080-exec-11] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==> Parameters: 
+2024/02/24-21:38:22 DEBUG [http-nio-8080-exec-11] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - <==      Total: 1
+2024/02/24-21:39:21 DEBUG [http-nio-8080-exec-3] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==>  Preparing: SELECT COUNT(id) FROM jsh_msg WHERE jsh_msg.tenant_id = 63 AND 1 = 1 AND ifnull(delete_Flag, '0') != '1' AND status = '1' 
+2024/02/24-21:39:21 DEBUG [http-nio-8080-exec-3] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==> Parameters: 
+2024/02/24-21:39:21 DEBUG [http-nio-8080-exec-3] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - <==      Total: 1
+2024/02/24-21:40:21 DEBUG [http-nio-8080-exec-4] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==>  Preparing: SELECT COUNT(id) FROM jsh_msg WHERE jsh_msg.tenant_id = 63 AND 1 = 1 AND ifnull(delete_Flag, '0') != '1' AND status = '1' 
+2024/02/24-21:40:21 DEBUG [http-nio-8080-exec-4] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - ==> Parameters: 
+2024/02/24-21:40:21 DEBUG [http-nio-8080-exec-4] com.jsh.erp.datasource.mappers.MsgMapperEx.getMsgCountByStatus - <==      Total: 1
