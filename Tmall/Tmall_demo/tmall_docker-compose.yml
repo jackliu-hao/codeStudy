@@ -1,0 +1,28 @@
+services:
+  #mysql
+  tmall_mysql: #服务名称
+    image: mysql:8.0
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456.h
+    command: --lower_case_table_names=1
+    networks:
+      - tmall_net
+
+  #后端
+  tmall_app:
+    image: tmall:1.0
+    ports:
+      - 7778:8080
+    networks:
+      - tmall_net
+
+
+networks:
+  tmall_net:
+volumes:
+  mysql_data:
+    external: true
